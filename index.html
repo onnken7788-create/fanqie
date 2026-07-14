@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的番茄钟</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f4f4;
+    font-family:"Microsoft YaHei",sans-serif;
+}
+
+.box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+#time{
+    font-size:56px;
+    margin:20px 0;
+    color:#e74c3c;
+}
+
+button{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#3498db;
+    color:white;
+    font-size:16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🍅 我的番茄钟</h2>
+
+<div id="time">25:00</div>
+
+<button onclick="start()">开始</button>
+
+</div>
+
+<script>
+
+let second=25*60;
+
+function show(){
+
+let m=Math.floor(second/60);
+
+let s=second%60;
+
+document.getElementById("time").innerHTML=
+String(m).padStart(2,"0")+":"+
+String(s).padStart(2,"0");
+
+}
+
+function start(){
+
+setInterval(function(){
+
+if(second>0){
+
+second--;
+
+show();
+
+}
+
+},1000);
+
+}
+
+show();
+
+</script>
+
+</body>
+
+</html>
